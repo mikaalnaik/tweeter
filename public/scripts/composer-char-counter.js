@@ -20,6 +20,8 @@ $( document ).ready(function() {
            var remainingChars = 140 - input.length
            if(remainingChars < 0){
              $(this).parents().find('.counter').css('color', 'red')
+           } else{
+             $(this).parents().find('.counter').css('color', 'black')
            }
            $(".counter").text(remainingChars);
        });

@@ -1,4 +1,15 @@
-#tweetscontainer {
+
+
+article header {
+  background-color: #eeeeee;
+  width: 100%;
+  height: 80px;
+  /* border-spacing: 0px, 0px, 2px, 0px; */
+}
+
+article {
+  height: 150px;
+  margin-top: 10px;
   background-color: white;
   border-radius: 6px 6px 6px 6px;
   /* padding-left: 2em;
@@ -8,39 +19,34 @@
   padding-bottom: .7em;
   top: 3em;
   margin-left: 2em;
+  margin-bottom: 40px;
   margin-right: 2em;
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
   transition: box-shadow .3s ease-in-out;
-  height: 200px;
-
+  /* transition: transform .3s ease-in-out */
+  /* height: 200px; */
+}
+article:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  /* transform: translateY(-2px); */
 }
 
-#tweetscontainer:hover {
-   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-#tweetscontainer header {
-  background-color: #eeeeee;
-  width: 100%;
-  height: 80px;
-  /* border-spacing: 0px, 0px, 2px, 0px; */
-}
-
- #tweetscontainer .pic {
+ article .pic {
    /* padding-left: ; */
    opacity: .5;
    margin-top: 15px;
    margin-left: 19px;
+   height: 50px;
    float: left;
    transition: opacity .3s ease-in-out;
 }
 
-#tweetscontainer:hover .pic {
+article:hover .pic {
   opacity: 1;
   transition: opacity .3s ease-in-out;
 }
 
-#tweetscontainer .handle {
+article .handle {
   color: #999999;
   padding-right: 1.5em;
   margin-top: 2em;
@@ -48,12 +54,12 @@
   opacity: .5;
   transition: opacity .3s ease-in-out;
 }
-#tweetscontainer:hover .handle {
+article:hover .handle {
   opacity: 1;
   transition: opacity .3s ease-in-out;
 }
 
-#tweetscontainer .userName {
+article .userName {
   font-weight: bold;
   overflow: auto;
   padding-right: 1.5em;
@@ -64,34 +70,28 @@
   transition: opacity .3s ease-in-out;
 }
 
-#tweetscontainer:hover .userName {
+article:hover .userName {
   opacity: 1;
   transition: opacity .3s ease-in-out;
 }
 
-#tweetscontainer .tweetcontent {
+article .tweetcontent {
   margin: auto;
   padding-right: 1.5em;
   padding-left: 1.5em;
-  margin-top: 1em;
-  float: right;
   overflow-wrap: break-word;
   max-width: 100%
-  /* word-wrap: break-word; */
+  word-wrap: break-word;
+  float: left;
+  margin-left: 10px;
+  margin-right: 2px;
+  height: 25px;
+  margin-top: 10px;
 }
 
-  /* #tweetscontainer .tweetcontent {
-    float: left;
-    margin: auto;
-    margin-left: 10px;
-    margin-right: 2px;
-    height: 25px;
-    margin-top: 12px;
-  } */
-
-  #tweetscontainer footer {
+  article footer {
     border-top: 1px solid #eeeeee;
-    color: #eeeeee
+    color: #999999;
     border-spacing: 1px, 0px, 0px, 0px;
     bottom: 0;
     position: absolute;
@@ -101,3 +101,15 @@
     width: 100%;
     font-size: .5em;
   }
+
+article .icons {
+    opacity: 0;
+    margin-left: 269px;
+    transition: opacity .3s ease-in-out;
+}
+
+article:hover .icons {
+    opacity: 1;
+    margin-left: 269px;
+    transition: opacity .6s ease-in-out;
+}
