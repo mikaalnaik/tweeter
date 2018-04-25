@@ -65,6 +65,8 @@ function renderTweets(data) {
 
 //format each object into new article in HTML
 function createTweetElement(input) {
+  // $('<div>').text(input.content.text})
+  $content = $("<div>").text(input.content.text).html()
   var newHTML =
     `<article>
         <header>
@@ -72,7 +74,7 @@ function createTweetElement(input) {
         <span class='handle'> ${input.user.handle}  </span>
         <span class='userName'> ${input.user.name} </span>
         </header>
-        <span class='tweetcontent'> ${input.content.text} </span>
+        <span class='tweetcontent'> ${$content} </span>
         <footer> ${input.created_at} <span class='icons'>
         <i class="fas fa-flag"> </i>
         <i class="fas fa-heart"></i>
