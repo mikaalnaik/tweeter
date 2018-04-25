@@ -4,86 +4,81 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// submit new tweets in POST function. Ajax success load new tweets
+$(document).ready(function() {
 
- const data =   [
-{
- "user": {
-   "name": "Newton",
-   "avatars": {
-     "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-     "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-     "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-   },
-   "handle": "@SirIsaac"
- },
- "content": {
-   "text": "If I have seen further it is by standing on the shoulders of giants"
- },
- "created_at": 1461116232227
-},
-{
- "user": {
-   "name": "Descartes",
-   "avatars": {
-     "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-     "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-     "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-   },
-   "handle": "@rd" },
- "content": {
-   "text": "Je pense , donc je suis"
- },
- "created_at": 1461113959088
-},
-{
- "user": {
-   "name": "Johann von Goethe",
-   "avatars": {
-     "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-     "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-     "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-   },
-   "handle": "@johann49"
- },
- "content": {
-   "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
- },
- "created_at": 1461113796368
-}
-];
+  //hide compose tweet on load
+$(".new-tweet").hide();
 
+//implement a slider to hide compse new tweet form
+$("button").click(function() {
+  $(".new-tweet").slideToggle(600);
+  $('textarea').focus()
+})
 
-$( document ).ready(function() {
-  function renderTweets(data){
-    for(var keys in data){
-      var newTweet = createTweetElement(data[keys])
-      console.log(data[keys])
-        $('#tweetscontainer').append(newTweet);
-    }
-  };
-  renderTweets(data)
+loadTweets()
+
+//Submit new tweets and call a new instance of loadtweets
+  $("form").submit(function() {
+    event.preventDefault();
+
+    var length = $('.new-tweet textarea').val().length;
+
+    if (length > 140) {
+      alert('Too Long')
+      return;
+    } else if (length == 0) {
+      alert('Too Short')
+      return;
+    } else
+
+      $.ajax({
+        url: '/tweets',
+        data: $('form').serialize(),
+        method: 'POST',
+        success: function() {
+          $('form')[0].reset()
+          loadTweets()
+        }
+      });
+  });
 });
 
+//GET JSON tweets
+function loadTweets() {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      success: function(data) {
+        renderTweets(data)
+      }
+  })
+}
 
-      function createTweetElement(input){
-var newHTML = `<article>
-              <header>
-              <img src ="${input.user.avatars.small}" class='pic'>
-              <span class='handle'> ${input.user.handle}  </span>
-              <span class='userName'> ${input.user.name} </span>
-              </header>
-              <span class='tweetcontent'> ${input.content.text} </span>
-              <footer> ${input.created_at} <span class='icons'>
-              <i class="fas fa-flag"> </i>
-              <i class="fas fa-heart"></i>
-              <i class="fas fa-retweet"></i>
+//iterate through JSON data and apply function to each element
+function renderTweets(data) {
+  for (var keys in data) {
+    var newTweet = createTweetElement(data[keys])
+    $('#tweetscontainer').prepend(newTweet);
+  }
+};
 
-
-
-
-              </span>
-
- </footer>
-              </article>`
-        return newHTML;
-      };
+//format each object into new article in HTML
+function createTweetElement(input) {
+  var newHTML =
+    `<article>
+        <header>
+        <img src ="${input.user.avatars.small}" class='pic'>
+        <span class='handle'> ${input.user.handle}  </span>
+        <span class='userName'> ${input.user.name} </span>
+        </header>
+        <span class='tweetcontent'> ${input.content.text} </span>
+        <footer> ${input.created_at} <span class='icons'>
+        <i class="fas fa-flag"> </i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-retweet"></i>
+        </span>
+        </footer>
+        </article>`
+  return newHTML;
+};

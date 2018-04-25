@@ -8,6 +8,7 @@
   padding-left: 2em;
   padding-right: 2em;
   width: 100%;
+  z-index: 6;
 
 }
 
@@ -23,4 +24,24 @@
   line-height: 77px;
   font-size: 200%;
   margin-left: 10px;
+}
+
+#nav-bar button {
+  background-color: #33adff;
+  color: green;
+  margin-top: 1em;
+  border: none;
+  color: white;
+  float: right;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: box-shadow .6s ease-in-out;
+}
+#nav-bar button:hover {
+  box-shadow: 0 -5px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transition: box-shadow .6s ease-in-out;
+
 }
