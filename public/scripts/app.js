@@ -6,19 +6,17 @@
 
 // submit new tweets in POST function. Ajax success load new tweets
 $(document).ready(function() {
-
   //hide compose tweet on load
-$(".new-tweet").hide();
+  $(".new-tweet").hide();
+  //implement a slider to hide compse new tweet form
+  $("button").click(function() {
+    $(".new-tweet").slideToggle(600);
+    $('textarea').focus()
+  })
 
-//implement a slider to hide compse new tweet form
-$("button").click(function() {
-  $(".new-tweet").slideToggle(600);
-  $('textarea').focus()
-})
+  loadTweets()
 
-loadTweets()
-
-//Submit new tweets and call a new instance of loadtweets
+  //Submit new tweets and call a new instance of loadtweets
   $("form").submit(function() {
     event.preventDefault();
 
@@ -37,7 +35,9 @@ loadTweets()
         data: $('form').serialize(),
         method: 'POST',
         success: function() {
+          $('#tweetscontainer').empty()
           $('form')[0].reset()
+          $('.counter').text('140')
           loadTweets()
         }
       });
@@ -46,12 +46,12 @@ loadTweets()
 
 //GET JSON tweets
 function loadTweets() {
-    $.ajax({
-      url: '/tweets',
-      method: 'GET',
-      success: function(data) {
-        renderTweets(data)
-      }
+  $.ajax({
+    url: '/tweets',
+    method: 'GET',
+    success: function(data) {
+      renderTweets(data)
+    }
   })
 }
 
