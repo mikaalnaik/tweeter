@@ -8,7 +8,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 !["Screenshot of page"](https://github.com/mikaalnaik/tweeter/blob/master/public/images/Screen%20Shot%202018-04-26%20at%203.41.01%20PM.png?raw=true)
 
-!["Screenshot of tweets hovered"](https://github.com/mikaalnaik/tweeter/blob/master/public/images/Screen%20Shot%202018-04-26%20at%203.41.01%20PM.png?raw=true))
+!["Screenshot of tweets hovered"](https://github.com/mikaalnaik/tweeter/blob/master/public/images/Screen%20Shot%202018-04-26%20at%203.41.16%20PM.png?raw=true)
 
 ## Getting Started
 
