@@ -7,6 +7,8 @@
 // submit new tweets in POST function. Ajax success load new tweets
 $(document).ready(function() {
 
+
+
   //hide compose tweet on load
   $(".new-tweet").hide();
 
@@ -45,7 +47,37 @@ $(document).ready(function() {
   });
 });
 
+
+function timeSince(date) {
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = Math.floor(seconds / 31536000);
+
+  if (interval > 1) {
+    return interval + " years";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " months";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " days";
+  }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " hours";
+  }
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
+}
+
 //GET JSON tweets
+
 function loadTweets() {
   $.ajax({
     url: '/tweets',
@@ -67,6 +99,13 @@ function renderTweets(data) {
 //format each object into new article in HTML
 function createTweetElement(input) {
   $content = $("<div>").text(input.content.text).html()
+
+
+
+let timeFrom = timeSince(input.created_at)
+
+console.log(timeFrom)
+
   var newHTML =
     `<article>
         <header>
@@ -75,7 +114,7 @@ function createTweetElement(input) {
         <span class='userName'> ${input.user.name} </span>
         </header>
         <span class='tweetcontent'> ${$content} </span>
-        <footer> ${input.created_at} <span class='icons'>
+        <footer> ${timeFrom} <span class='icons'>
         <i class="fas fa-flag"> </i>
         <i class="fas fa-heart"></i>
         <i class="fas fa-retweet"></i>
