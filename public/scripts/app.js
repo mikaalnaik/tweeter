@@ -20,7 +20,6 @@ $(document).ready(function() {
 
   //Submit new tweets and call a new instance of loadtweets
   $("form").submit(function() {
-    
     event.preventDefault();
     var length = $('.new-tweet textarea').val().length;
 
