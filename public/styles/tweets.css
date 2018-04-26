@@ -106,3 +106,21 @@ article:hover .icons {
   margin-left: 269px;
   transition: opacity .6s ease-in-out;
 }
+
+.fa-flag:hover{
+    content: "\f024";
+    color: #3399ff;
+    transition: color .3s ease-in-out;
+}
+
+.fa-heart:hover {
+    content: "\f004";
+    color:  #ff0000;
+    transition: color .3s ease-in-out;
+}
+
+.fa-retweet:hover {
+    content: "\f079";
+    color:  #33cc33;
+    transition: color .3s ease-in-out;
+}

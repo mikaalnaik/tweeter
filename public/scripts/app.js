@@ -6,8 +6,10 @@
 
 // submit new tweets in POST function. Ajax success load new tweets
 $(document).ready(function() {
+
   //hide compose tweet on load
   $(".new-tweet").hide();
+
   //implement a slider to hide compse new tweet form
   $("button").click(function() {
     $(".new-tweet").slideToggle(600);
@@ -18,8 +20,8 @@ $(document).ready(function() {
 
   //Submit new tweets and call a new instance of loadtweets
   $("form").submit(function() {
+    
     event.preventDefault();
-
     var length = $('.new-tweet textarea').val().length;
 
     if (length > 140) {
@@ -65,7 +67,6 @@ function renderTweets(data) {
 
 //format each object into new article in HTML
 function createTweetElement(input) {
-  // $('<div>').text(input.content.text})
   $content = $("<div>").text(input.content.text).html()
   var newHTML =
     `<article>
