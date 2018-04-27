@@ -1,4 +1,3 @@
-@charset "UTF-8";
 article header {
   background-color: #eeeeee;
   width: 100%;
@@ -13,35 +12,35 @@ article {
   background-color: white;
   border-radius: 6px 6px 6px 6px;
   position: relative;
-  padding-bottom: 0.7em;
+  padding-bottom: .7em;
   top: 1em;
   margin-left: 2em;
   margin-bottom: 40px;
   margin-right: 2em;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  transition: box-shadow 0.3s ease-in-out;
-  transition: transform 0.3s ease-in;
+  transition: box-shadow .3s ease-in-out;
+  transition: transform .3s ease-in;
 }
 
 article:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  transition: transform 0.3s ease-in-out;
+  transition: transform .3s ease-in-out;
   transform: scale(1.05);
   z-index: 2;
 }
 
 article .pic {
-  opacity: 0.5;
+  opacity: .5;
   margin-top: 15px;
   margin-left: 19px;
   height: 50px;
   float: left;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 article:hover .pic {
   opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 article .handle {
@@ -49,29 +48,29 @@ article .handle {
   padding-right: 1.5em;
   margin-top: 2em;
   float: right;
-  opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
+  opacity: .5;
+  transition: opacity .3s ease-in-out;
 }
 
 article:hover .handle {
   opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 article .userName {
   font-weight: bold;
   overflow: auto;
   padding-right: 1.5em;
-  padding-left: 0.9em;
+  padding-left: .9em;
   margin-top: 2em;
   float: left;
-  opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
+  opacity: .5;
+  transition: opacity .3s ease-in-out;
 }
 
 article:hover .userName {
   opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 article .tweetcontent {
@@ -98,38 +97,36 @@ article footer {
   padding-top: 4px;
   padding-left: 15px;
   width: 100%;
-  font-size: 0.5em;
+  font-size: .5em;
 }
 
 article .icons {
   opacity: 0;
   float: right;
   margin-right: 10px;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 article:hover .icons {
   opacity: 1;
   margin-right: 10px;
-  transition: opacity 0.6s ease-in-out;
+  transition: opacity .6s ease-in-out;
 }
 
-.fa-flag:hover {
-  content: "";
-  color: #3399ff;
-  transition: color 0.3s ease-in-out;
+.fa-flag:hover{
+    content: "\f024";
+    color: #3399ff;
+    transition: color .3s ease-in-out;
 }
 
 .fa-heart:hover {
-  content: "";
-  color: #ff0000;
-  transition: color 0.3s ease-in-out;
+    content: "\f004";
+    color:  #ff0000;
+    transition: color .3s ease-in-out;
 }
 
 .fa-retweet:hover {
-  content: "";
-  color: #33cc33;
-  transition: color 0.3s ease-in-out;
+    content: "\f079";
+    color:  #33cc33;
+    transition: color .3s ease-in-out;
 }
-
-/*# sourceMappingURL=tweets.css.map */
