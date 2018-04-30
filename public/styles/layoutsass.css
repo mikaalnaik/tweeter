@@ -14,24 +14,7 @@ html {
 /*
  * Global layout stuff
  */
-html #error {
-  color: white;
-  background-color: #FFFFFF;
-  overflow: hidden;
-  height: 150px;
-  /* margin-top: 10px; */
-  background-color: white;
-  border-radius: 6px 6px 6px 6px;
-  position: relative;
-  padding-bottom: 0.7em;
-  /* top: 1em; */
-  margin-left: 2em;
-  margin-bottom: 40px;
-  margin-right: 2em;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  transition: box-shadow 0.3s ease-in-out;
-  transition: transform 0.3s ease-in;
-}
+
 
 body {
   margin: 0;
